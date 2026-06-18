@@ -447,7 +447,7 @@ function Builder({user, setUser}) {
             </div>
 
             {/* ─── Main Content ─── */}
-            <div className='flex-1 min-w-0'>
+            <div className='flex-1 min-w-0 '>
               <div className='bg-white dark:bg-gray-900 rounded-[32px] shadow-xl p-8 transition-colors duration-300'>
                 <div className='mb-6 pb-4 border-b border-gray-100 dark:border-gray-800'>
                   <h2 className='text-xl font-bold text-black dark:text-white flex items-center gap-2'>

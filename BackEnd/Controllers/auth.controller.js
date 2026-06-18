@@ -6,15 +6,9 @@ import User from "../Models/user.model.js"
 export const googleAuth = async (req,res) => {
     try {
         const {name , email} = req.body
-        if(!name || !email) {
-            return res.status(400).json({message:"Name and Email are required"})
-        }
+        if(!name || !email) {return res.status(400).json({message:"Name and Email are required"})}
         let user = await User.findOne({email})
-        if(!user){
-            user = await User.create({
-                name , email
-            })
-        }
+        if(!user){user = await User.create({name , email})}
         const token = await genToken(user._id)
         res.cookie("token" , token , {
             httpOnly:true,
@@ -31,14 +25,7 @@ export const googleAuth = async (req,res) => {
 }
 
 export const logOut = async (req,res) => {
-    try {
-        await res.clearCookie("token" , {
-            httpOnly:true,
-            secure:false,
-            sameSite:"strict"
-        })
-         return res.status(200).json({message:"LogOut Sucessfully"})
-    } catch (error) {
-         return res.status(500).json({message:`LogOut Failed ${error}`})
+    try {await res.clearCookie("token" , {httpOnly:true,secure:false,sameSite:"strict"});return res.status(200).json({message:"LogOut Sucessfully"})
+    } catch (error) {return res.status(500).json({message:`LogOut Failed ${error}`})
     }
 }

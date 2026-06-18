@@ -9,19 +9,31 @@ import { SparkleIcon, LockIcon, HandshakeIcon } from '../Components/Icons';
 
 function Login({setUser}) {
   const navigate = useNavigate()
+const handleLogin = async () => {
+  try {
+    console.log("Starting Google Login...");
 
-  const handleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider)
-      const {displayName, email} = result.user
-      const res = await axios.post(ServerUrl + "/api/auth/google", { name: displayName, email }, {withCredentials:true})
-      setUser(res.data)
-      toast.success("Login Successfully")
-      navigate("/builder")
-    } catch (error) {
-      toast.error("Login Failed...")
-    }
+    const result = await signInWithPopup(auth, provider);
+    console.log("Firebase Success:", result);
+
+    const { displayName, email } = result.user;
+
+    const res = await axios.post(
+      ServerUrl + "/api/auth/google",
+      { name: displayName, email },
+      { withCredentials: true }
+    );
+
+    console.log("Backend Success:", res.data);
+
+    setUser(res.data);
+    toast.success("Login Successfully");
+    navigate("/builder");
+  } catch (error) {
+    console.error("Login Error:", error);
+    toast.error("Login Failed");
   }
+};
 
   return (
     <div className='min-h-screen bg-[#f5f5f5] dark:bg-gray-950 flex items-center justify-center px-4 py-12 transition-colors duration-300'>

@@ -242,6 +242,17 @@ Browser
 | `path` | String | URL path (e.g. `/pricing`) |
 | `keywords` | [String] | Voice trigger keywords (e.g. `["pricing", "plans", "cost"]`) |
 
+
+Primary Category
+AI SaaS Platform
+
+Users:
+Sign up with Google
+Create and customize AI assistants
+Configure business data
+Add navigation commands
+Use their own Gemini API key
+Embed the assistant on any website
 ---
 
 ## License

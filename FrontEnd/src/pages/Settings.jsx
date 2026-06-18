@@ -101,8 +101,7 @@ function Settings() {
           </div>
         </div>
       </div>
-
-      {showConfirm && (
+{showConfirm && (
         <div className='fixed inset-0 z-50 flex items-center justify-center px-4'>
           <div className='absolute inset-0 bg-black/50 backdrop-blur-sm' onClick={() => !deleting && setShowConfirm(false)} />
           <div className='relative bg-white dark:bg-gray-900 rounded-[28px] shadow-2xl p-8 max-w-sm w-full animate-pop-in'>

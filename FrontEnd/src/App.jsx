@@ -11,6 +11,7 @@ import { ThemeProvider } from './Context/ThemeContext'
 import { Toaster } from "react-hot-toast"
 export const ServerUrl = "http://localhost:8000"
 export const CLIENT_URL = "http://localhost:5173"
+
 function App() {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
