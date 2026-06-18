@@ -9,8 +9,9 @@ import Builder from './pages/Builder'
 import Settings from './pages/Settings'
 import { ThemeProvider } from './Context/ThemeContext'
 import { Toaster } from "react-hot-toast"
-export const ServerUrl = "http://localhost:8000"
-export const CLIENT_URL = "http://localhost:5173"
+export const ServerUrl = import.meta.env.VITE_SERVER_URL
+export const CLIENT_URL = import.meta.env.VITE_CLIENT_URL
+
 
 function App() {
   const [user, setUser] = useState(null)
