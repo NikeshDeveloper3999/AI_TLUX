@@ -11,8 +11,14 @@ dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 8000
-const privateCors =
-  cors({origin: ["http://localhost:5173"],credentials: true});
+
+const privateCors = cors({
+  origin: [
+    "http://localhost:5173",
+    process.env.CLIENT_URL
+  ],
+  credentials: true,
+});
   const publicCors =cors({origin: "*",});
   connectDB()
 app.use(express.json())
